@@ -1,5 +1,6 @@
 const pg = require("./../");
-
+const jwt = require('jsonwebtoken');
+require("dotenv").config();
 const get = async()=>{
 try {
   const users= await pg.select().table("users");
@@ -9,11 +10,24 @@ try {
 }
 };
 
+const getUser =async(user) =>{
+  try {
+    const foundUser = await pg("users").where(user).select()
+    const token = jwt.sign(foundUser[0], process.env.TOKEN_SECRET);
+    return token;
+  } catch (error) {
+    return 400;
+  }
+}
+
 const create = async(user)=>{
   try {
-     await pg("users").insert([user]);
-     return 200;
+     const createdUser= await pg("users").insert([user]).returning("*");
+     console.log(createdUser);
+     const token = jwt.sign(createdUser[0], process.env.TOKEN_SECRET);
+     return token;
   } catch (error) {
+   console.log(error);
     return 400;
   }
   
@@ -26,7 +40,8 @@ module.exports= {
   get,
   create,
   update,
-  archive
+  archive,
+  getUser
 }
 
 

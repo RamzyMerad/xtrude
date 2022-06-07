@@ -1,0 +1,67 @@
+.feed{
+  position: relative;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  gap:20px;
+  .profil{
+    position: fixed;
+    left: 50px;
+    width: calc(20% - 50px);
+    height: 500px;
+    background-color: white;
+    box-shadow: 0 0 30px rgba($color: #000000, $alpha: 0.20);
+    border-radius: 12px;
+  }
+  .posts{
+    width: 60%;
+    .post,.postInput{
+      margin: 20px 0;
+      padding: 20px;
+      background-color: white;
+    box-shadow: 0 0 30px rgba($color: #000000, $alpha: 0.20);
+    border-radius: 12px;
+    }
+    .publications{
+      flex-direction: column-reverse;
+      display: flex;
+    }
+    .postInput{
+      margin-top: 0;
+      padding: 50px;
+      display: flex;
+      form{
+        display: flex;
+      width: 100%;
+      justify-content: space-between;
+      input{
+        border: none;
+        outline: none;
+        font-size: 20px;
+      }
+      button{
+        border-radius: 10px;
+        border: none;
+        background-color: #0A9BDB;
+        padding: 10px 30px;
+        font-family: "Poppins";
+        color: white;
+        font-weight: bold;
+      }
+      }
+     
+    }
+    
+  }
+  .trends{
+    right: 50px;
+    position: fixed;
+    width: calc(20% - 50px);
+    height: 250px;
+    background-color: white;
+    box-shadow: 0 0 30px rgba($color: #000000, $alpha: 0.20);
+    border-radius: 12px;
+  }
+}
+
+
