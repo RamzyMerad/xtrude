@@ -5,7 +5,7 @@ const createTables = async () => {
     if(!exist){
       await pg.schema.createTable("posts", function (table) {
         table.increments(); // integer id
-        table.string('content'); // name
+        table.string('content'); // content
         table.string('media'); //media
         table.integer('user_id') //user-id
         table.integer('likes') //likes
@@ -23,6 +23,7 @@ const createTables = async () => {
         table.string('name'); // name
         table.string('picture'); //PP
         table.string('bio'); //bio
+        table.string('level'); //level
         table.string('password'); //password
       }).then(() => {
   

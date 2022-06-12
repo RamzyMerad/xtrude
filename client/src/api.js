@@ -42,11 +42,16 @@ async function updateUser(user) {
   const response = await fetch(`${url}/users`);
  return await response.json();
 }
+async function getUsers() {
+  const response = await fetch(`${url}/users`);
+ return await response.json();
+}
 
 export{
   getPosts,
   login,
   register,
   createPost,
-  getJwt
+  getJwt,
+  getUsers
 }

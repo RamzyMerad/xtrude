@@ -61,7 +61,17 @@
     background-color: white;
     box-shadow: 0 0 30px rgba($color: #000000, $alpha: 0.20);
     border-radius: 12px;
+    h2{
+      text-align: center;
+      font-weight: bold;
+    }
+    .trendsTags{
+      width: 100%;
+      height: 70%;
+      padding-left: 60px;
+    }
   }
+
 }
 
 

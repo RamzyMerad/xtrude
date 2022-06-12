@@ -6,6 +6,7 @@ import {createPost, getPosts} from '../../api';
 import "./style.scss";
 import { useCookies } from "react-cookie";
 import socketIOClient from "socket.io-client";
+import { Link } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
 const ENDPOINT = "http://127.0.0.1:2000";
 
@@ -34,9 +35,19 @@ const Feed = () => {
 <div className = 'feed'>
 
     <div className = 'profil' >
-      <div  className='profileImage'></div>
-      <div className=' profilInfo'>
-        <div className='bio'></div>
+      <div className='backgroundPic'>
+        
+      </div>
+      <div  className='profileImage'>
+        <img src="./7ba8ec4a42b529dcbbc695ce0dd07a4a.webp" alt='profile'/>
+      </div>
+      <div className='profilInfo'>
+      <div className='bio'>"The creative adult is the child who survived."</div>
+      <div className='follow'>
+        <h3>Followers</h3>
+        <h3>Follows</h3>
+      </div>
+      <Link to="/profile"><button>My profile</button></Link>
       </div>
       </div> 
     <div className = 'posts'>
@@ -55,8 +66,15 @@ const Feed = () => {
     }
     </div>
     </div>
-    <div className = 'trends' ></div> 
-    
+    <div className = 'trends' >
+      <h2>Trends for you</h2>
+      <div className='trendsTags'>
+        <p>#3dAwards</p>
+        <p>#PixarFestival</p>
+        <p>#ArtistRights</p>
+      </div>
+      </div> 
+      
     </div>
 
   );
@@ -74,11 +92,12 @@ const Postinput = ()=>{
   }
 
   return(
-    <div className='postInput'>
+    <div className='postInput'> 
         <form onSubmit={(e)=>submitPost(e)}>
         <input name="postid" placeholder="What's happening?"/>
         <button type='submit'>Submit</button>
         </form>
+        <button>Add image</button>
       </div>
   );
 }

@@ -1,7 +1,8 @@
 import React from 'react'
 import Spline from '@splinetool/react-spline';
 import "./style.css";
-import MyVideo from "./cube animation0001-0060.mov";
+import gif  from "./Webp.net-gifmaker (2).gif";
+
 export default function Home() {
   return ( 
   <div className='home'>

@@ -5,6 +5,7 @@ import "./style.css";
 import Login from './components/login';
 import Register from './components/register';
 import Profile from './components/profile';
+import Talents from "./components/talents/talents";
 import React, { useState } from 'react';
 import { useCookies } from "react-cookie";
 import {
@@ -28,6 +29,7 @@ function App() {
         <Route path="/register" element={<Register/>}/>
         <Route path="/login" element={<Login/>}/>
         <Route path="/profile" element={<Profile/>}/>
+        <Route path="/talents" element={<Talents/>}/>
     </Routes>
     </div>
   </BrowserRouter>

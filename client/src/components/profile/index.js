@@ -7,12 +7,15 @@ import {getJwt} from '../../api';
 
 export default function Profile() {
   const [token, setToken] = useCookies(['token']);
-
+  const [user,setUser] = useState({});
   useEffect(() => {
    decoded();
   }, []);
-  const [user,setUser] = useState();
 
+  useEffect(() => {
+   console.log(user);
+  }, [user]);
+  
   const decoded = async()=>{
     console.log(token.token.token);
     const decoded = await getJwt(token.token.token,'ramz');
@@ -27,6 +30,9 @@ export default function Profile() {
 
   return (
     <div className='profile'> 
+    <div className='backimage'>
+      
+    </div>
     <img className='pp' src={Image}></img>
     <form>
     <label>
@@ -37,5 +43,6 @@ export default function Profile() {
       </label>
     {/* <button type='submit' onSubmit={(e)=>updateProfile(e)}>Update</button> */}
     </form></div>
+
   )
 }

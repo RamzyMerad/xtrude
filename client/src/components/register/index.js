@@ -11,7 +11,8 @@ export default function Register() {
     if(e.target.password.value == e.target.repeatpassword.value){
       const user = {
         name:e.target.username.value,
-        password:e.target.password.value
+        password:e.target.password.value,
+        level:e.target.level.value
       }
      const token= await register(user);
      setToken('token', token);
@@ -40,6 +41,14 @@ export default function Register() {
        <label>
         <p>Repeat password</p>
         <input type="password" name ="repeatpassword" />
+       </label>
+       <label>
+        <p>LEVEL</p>
+        <select name="level" >
+          <option value="Junior">Junior</option>
+          <option value="Master">Master</option>
+          <option value="Senior">Senior</option>
+        </select>
        </label>
         <div>
         <button type="submit">Submit</button>
