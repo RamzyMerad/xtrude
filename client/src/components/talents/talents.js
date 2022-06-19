@@ -30,13 +30,15 @@ const [filter, setFilter] = useState("");
         </select>
        </label>
 
-      {/* <input  type ="text" placeholder='Search...' className='search' onChange={(e)=>setQuery(e.target.value)}/>
+      <input  type ="text" placeholder='Search...' className='search' onChange={(e)=>setQuery(e.target.value)}/>
       <ul className='userList'>
         {users.filter((user)=>user.name.toLowerCase().includes(query) && user.level===filter).map((user)=>(
-          <li key={user.id} className='userItem'>{user.name}-{user.level}</li>
+          <li key={user.id} className='userItem'>{user.name}-{user.level}
+          
+          </li>
         ))}
 
-      </ul> */}
+      </ul>
 
       <label className='locationlabel'>
         <p>LOCATION</p>

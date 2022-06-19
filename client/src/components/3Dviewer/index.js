@@ -10,11 +10,12 @@ const Viewer = () => {
     const obj = useLoader(OBJLoader, './3D/Human.obj')
     return <primitive object={obj} />
   }
+  
   return (
     <div id="canvas-container">
      
     <Canvas flat dpr={[1,2]} camera={{fov:35,position:[50,50,50]}}>
-    <color attach="background" args ={['black']}/>
+    <color attach="background" args ={['']}/>
 
     <ambientLight intensity={0.3}/>
     <directionalLight color="white" position={[-20, 0, 0]} intensity={0.3} />

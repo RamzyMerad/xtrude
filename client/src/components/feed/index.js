@@ -8,13 +8,18 @@ import { useCookies } from "react-cookie";
 import socketIOClient from "socket.io-client";
 import { Link } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
+import image from './../../Assets/human.png';
+import { getUsers } from '../../api';
+
 const ENDPOINT = "http://127.0.0.1:2000";
 
+
+
 const Feed = () => {
+  const [users, setUsers] = useState([]);
   const [posts, setPosts] = useState([]);
   const navigate= useNavigate();
   const [token] = useCookies(['token']);
-  
   useEffect(() => {
     const socket = socketIOClient(ENDPOINT);
     socket.on("post", data => {
@@ -53,14 +58,30 @@ const Feed = () => {
     <div className = 'posts'>
     <Postinput/>
     <div className='publications'>
+     
     {
       posts.map(post => ( 
       <div className = 'post' >
+        <div className='user-profile'>
+        <img src={image}></img>
+        <div>
+          <p>username</p>
+          <span>24/06/2022 12:30</span>
+        </div>
+      </div>
       <p key = {
           post.id
         } > {
           post.content
         } </p>
+      <div className='post-row'>
+        <div className='activity-icons'>
+          <div><button>Like</button>120</div>
+          <div><button>comment</button>2</div>
+          <div><button>repost</button>20</div>
+          <div><button>save</button></div>
+        </div>
+      </div>
      </div> 
      ))
     }
@@ -93,12 +114,23 @@ const Postinput = ()=>{
 
   return(
     <div className='postInput'> 
+      <div className='writeBox'>
+      <div className='user-profile'>
+        <img src={image}></img>
+      </div>
         <form onSubmit={(e)=>submitPost(e)}>
         <input name="postid" placeholder="What's happening?"/>
         <button type='submit'>Submit</button>
         </form>
-        <button>Add image</button>
+        </div>
+        <div className='add-buttons'>
+          <a href='#'><button>Photo</button></a>
+          <a href='#'><button>Video</button></a>
+          <a href='#'><button>Viewer</button></a>
+        </div>
       </div>
+
+
   );
 }
 export default Feed;

@@ -20,7 +20,7 @@ h2 {
 
 }
 
-canvas {
+.background canvas {
   width: 60vw;
   transform: translateY(-50%);
   position: absolute;
